@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+episodes/
+*.mp4
+*.npz
+!media/*.gif
+.DS_Store
