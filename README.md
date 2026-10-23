@@ -18,6 +18,7 @@ Laptop for simulation, free Colab GPU for training.
 All tasks live as GitHub issues, grouped into milestone phases.
 **Start with the lowest-numbered open issue.**
 
+- [Board](https://github.com/users/arundidauli/projects/3) - one card per day
 - [Open tasks](https://github.com/arundidauli/robotic-lab/issues)
 - [By phase](https://github.com/arundidauli/robotic-lab/milestones)
 - [Hardware tasks](https://github.com/arundidauli/robotic-lab/milestone/7) (closed until the arm arrives)
