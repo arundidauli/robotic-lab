@@ -40,11 +40,15 @@ def main():
     print(f"Arm hinge joints: {[n for _,n in arm_joints]}")
     print()
 
+    auto_exit = None
+    if "--auto-exit" in sys.argv:
+        auto_exit = float(sys.argv[sys.argv.index("--auto-exit") + 1])
+
     with mujoco.viewer.launch_passive(model, data) as viewer:
         for jidx, jname in arm_joints:
             rng = model.jnt_range[jidx]
             qadr = model.jnt_qposadr[jidx]
-            print(f"Sweeping {jname} [{rng[0]:.3f} -> {rng[1]:.3f}]")
+            print(f"Sweeping {jname} [{rng[0]:.3f} -> {rng[1]:.3f}]", flush=True)
             data.qpos[qadr] = (rng[0] + rng[1]) / 2.0
             mujoco.mj_forward(model, data)
             viewer.sync()
@@ -52,8 +56,15 @@ def main():
             steps = 150
             for s in range(steps):
                 t = s / (steps - 1)
-                data.qpos[qadr] = rng[0] + t * (rng[1] - rng[0])
+                angle = rng[0] + t * (rng[1] - rng[0])
+                data.qpos[qadr] = angle
                 mujoco.mj_forward(model, data)
+                viewer.set_texts((
+                    mujoco.mjtFontScale.mjFONTSCALE_150,
+                    mujoco.mjtGridPos.mjGRID_TOPLEFT,
+                    f"Day 01  |  {jname}",
+                    f"{angle:+.2f} rad",
+                ))
                 viewer.sync()
                 time.sleep(1 / 30)
             time.sleep(0.4)
@@ -61,11 +72,22 @@ def main():
             mujoco.mj_forward(model, data)
             viewer.sync()
             time.sleep(0.6)
-        print("Done. Close the viewer to exit.")
+        viewer.set_texts((
+            mujoco.mjtFontScale.mjFONTSCALE_150,
+            mujoco.mjtGridPos.mjGRID_TOPLEFT,
+            "Day 01  |  all six joints",
+            "done",
+        ))
+        viewer.sync()
+        print("Done. Close the viewer to exit.", flush=True)
+
+        start = time.time()
         while viewer.is_running():
             mujoco.mj_step(model, data)
             viewer.sync()
             time.sleep(0.01)
+            if auto_exit is not None and time.time() - start > auto_exit:
+                break
 
 
 if __name__ == '__main__':

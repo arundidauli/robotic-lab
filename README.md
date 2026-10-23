@@ -33,6 +33,15 @@ All tasks live as GitHub issues, grouped into milestone phases.
 | 6 | 27–30 | Systems | Policy service, ROS 2, deployment harness, capstone |
 | H | — | Hardware (when arm arrives) | BOM, calibration, safety, real deployment |
 
+## Progress
+
+### Day 01 — Meet the arm ✅
+
+![Day 01 — SO-101 joint sweep](media/day01-joints.png)
+
+Six joints, six limits. The viewer labels each joint by name while it sweeps.
+Code: [`days/day01-meet-the-arm/`](days/day01-meet-the-arm/) · [issue #1](https://github.com/arundidauli/robotic-lab/issues/1)
+
 ## How a day works
 
 1. Open the next issue. It contains the task, the concept, the video script,
