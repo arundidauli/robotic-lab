@@ -1,6 +1,6 @@
 # Day 01 — Meet the arm
 
-![Day 01 — SO-101 joint sweep](../../media/day01-joints.png)
+![Day 01 — SO-101 6 Joints Guide](../../media/day01.png)
 
 ## Question
 This robot has six joints. What does each one actually do?
@@ -30,18 +30,22 @@ cd days/day01-meet-the-arm
 ```
 
 macOS needs `mjpython` for the live viewer. The headless renderer is not used
-here; the picture above is rendered separately from the same scene.
+here; the viewer displays live joint names and angles during the sweep:
 
-## Joint table
+![MuJoCo joint sweep viewer](../../media/day01-joints.png)
 
-| Joint | Range (rad) |
-|-------|-------------|
-| shoulder_pan | -1.920 … 1.920 |
-| shoulder_lift | -1.745 … 1.745 |
-| elbow_flex | -1.690 … 1.690 |
-| wrist_flex | -1.658 … 1.658 |
-| wrist_roll | -2.744 … 2.841 |
-| gripper | -0.175 … 1.745 |
+## The 6 joints and what they do
+
+| Joint | Motion & Purpose | Range (rad) | Range (deg) |
+|-------|------------------|-------------|-------------|
+| `shoulder_pan` | Rotates the whole arm left and right (base rotation) | -1.920 … 1.920 | ~ ±110° |
+| `shoulder_lift` | Moves the upper arm up and down | -1.745 … 1.745 | ~ ±100° |
+| `elbow_flex` | Bends and straightens the elbow | -1.690 … 1.690 | ~ ±97° |
+| `wrist_flex` | Tilts the wrist up and down | -1.658 … 1.658 | ~ ±95° |
+| `wrist_roll` | Rotates the wrist (rolls the end effector) | -2.744 … 2.841 | ~ -157° … +163° |
+| `gripper` | Opens and closes the gripper fingers | -0.175 … 1.745 | ~ -10° … +100° |
+
+> **Key takeaway:** Each joint has a hard limit — the arm cannot reach everywhere you imagine. Five joints have roughly ±100° to ±160° range, while the gripper is the asymmetrical actuator.
 
 ## Video
 - **0–15 s:** six joints sweeping one by one, name overlay visible. "This robot has six joints. Watch what each one does."

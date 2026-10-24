@@ -37,7 +37,7 @@ All tasks live as GitHub issues, grouped into milestone phases.
 
 ### Day 01 — Meet the arm ✅
 
-![Day 01 — SO-101 joint sweep](media/day01-joints.png)
+![Day 01 — SO-101 6 Joints Guide](media/day01.png)
 
 Six joints, six limits. The viewer labels each joint by name while it sweeps.
 Code: [`days/day01-meet-the-arm/`](days/day01-meet-the-arm/) · [issue #1](https://github.com/arundidauli/robotic-lab/issues/1)
