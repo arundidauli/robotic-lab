@@ -42,6 +42,13 @@ All tasks live as GitHub issues, grouped into milestone phases.
 Six joints, six limits. The viewer labels each joint by name while it sweeps.
 Code: [`days/day01-meet-the-arm/`](days/day01-meet-the-arm/) · [issue #1](https://github.com/arundidauli/robotic-lab/issues/1)
 
+### Day 02 — Forward Kinematics & Gripper Frames ✅
+
+![Day 02 — Gripper Frame Axes in MuJoCo](media/day02-fk.png)
+
+Joint angles are inputs, hand pose is computed output. 4×4 transform chain draws live RGB axes on the gripper frame.
+Code: [`days/day02-forward-kinematics/`](days/day02-forward-kinematics/) · [issue #2](https://github.com/arundidauli/robotic-lab/issues/2)
+
 ## How a day works
 
 1. Open the next issue. It contains the task, the concept, the video script,
